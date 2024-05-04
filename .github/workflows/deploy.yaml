@@ -16,7 +16,7 @@ jobs:
   deploy-infras:
     runs-on: ubuntu-latest
     outputs:
-      SERVER_PUBLIC_IP: ${{ steps.set-ip.outputs.instance_public_ip }}
+      SERVER_PUBLIC_IP: ${{ steps.set-ip.output1 }}
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -44,8 +44,9 @@ jobs:
         working-directory: ./terraform
       - name: Set Output
         id: set-ip
-        run: |-
-          echo "instance_public_ip=$(terraform output instance_public_ip)"
+        env:
+          output1: ${terraform output instance_public_ip}
+        run:  echo "$output1"
   deploy-app:
     runs-on: ubuntu-latest
     needs: deploy-infras
