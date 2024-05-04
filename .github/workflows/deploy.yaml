@@ -13,7 +13,7 @@ env:
   AWS_REGION: us-east-1
 
 jobs:
-  deploy-infra:
+  deploy-infras:
     runs-on: ubuntu-latest
     outputs:
       SERVER_PUBLIC_IP: ${{ steps.set-ip.outputs.instance_public_ip }}
