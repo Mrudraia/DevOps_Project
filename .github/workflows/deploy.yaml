@@ -2,7 +2,7 @@ name: CI/CD with terraform
 on:
   push:
     branches:
-      - Complete-CI/CD-with-Terrform-AWS
+      - master
 
 end:
   AWS_ACCESS_KEY_ID: $({ secrets.AWS_ACCESS_KEY_ID })
