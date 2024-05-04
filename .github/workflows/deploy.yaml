@@ -50,6 +50,7 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
     needs: deploy-infras
+    # samle comment
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -66,7 +67,6 @@ jobs:
         run: |-
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG 
-        
       - name: Deploy docker image to EC2
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
