@@ -12,6 +12,7 @@ env:
   PUBLIC_SSH_KEY: ${{ secrets.AWS_SSH_KEY_PUBLIC }}
   AWS_REGION: us-east-1
 
+# sample comment
 jobs:
   deploy-infras:
     runs-on: ubuntu-latest
